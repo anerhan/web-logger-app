@@ -19,4 +19,27 @@ var app = new EmberApp();
 
 app.import('bower_components/moment/moment.js');
 
+app.import('bower_components/bootstrap/dist/css/bootstrap.min.css');
+app.import('bower_components/bootstrap/dist/css/bootstrap.css.map');
+app.import('bower_components/bootstrap/dist/css/bootstrap-theme.min.css');
+app.import('bower_components/bootstrap/dist/css/bootstrap-theme.css.map');
+app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
+app.import('app/styles/simple-sidebar.css');
+
+app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff', {
+  destDir: 'fonts'
+});
+app.import('bower_components/bootstrap/dist/fonts/glyphicons-halfings-regular.eot', {
+  destDir: 'fonts'
+});
+app.import('bower_components/bootstrap/dist/fonts/glyphicons-halfings-regular.svg', {
+  destDir: 'fonts'
+});
+app.import('bower_components/bootstrap/dist/fonts/glyphicons-halfings-regular.ttf', {
+  destDir: 'fonts'
+});
+app.import('bower_components/bootstrap/dist/fonts/glyphicons-halfings-regular.woff2', {
+  destDir: 'fonts'
+});
+
 module.exports = app.toTree();
