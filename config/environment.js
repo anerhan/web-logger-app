@@ -14,6 +14,7 @@ module.exports = function(environment) {
     },
 
     APP: {
+      wsHost: 'ws://locahost:8080'
       // Here you can pass flags/options to your application instance
       // when it is created
     },
@@ -22,7 +23,7 @@ module.exports = function(environment) {
       'default-src': "'none'",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
       'font-src': "'self'",
-      'connect-src': "'self' ws://localhost:9099 localhost:9099",
+      'connect-src': "'self' ws://localhost:8080 localhost:8080 http://localhost:9292 localhost:9292",
       'img-src': "'self'",
       'report-uri':"'localhost'",
       'style-src': "'self' 'unsafe-inline'",
@@ -37,6 +38,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+     ENV.SOME_ENVIRONMENT_KEY = 'asdf1234';
   }
 
   if (environment === 'test') {

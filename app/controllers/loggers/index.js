@@ -1,30 +1,39 @@
 import Ember from 'ember';
+// import settings from '../../config/settings';
 
-export default Ember.Controller.extend({
+export default Ember.ArrayController.extend({
   init: function() {
     this._super();
-    var socket = this.get('websockets').socketFor('ws://localhost:9099');
+    var socket = this.get('websockets').socketFor('ws://localhost:8080');
     socket.on('open', this.myOpenHandler, this);
     socket.on('message', this.myMessageHandler, this);
     socket.on('close', function() {
         console.log('closed');
     }, this);
   },
-  message: '',
+  messages: Ember.A([]),
+  count: 0,
+  // appName: settings.apiName,
 
   myOpenHandler: function(event) {
-    console.log('On open event has been called: ' + event);
+    var socket = this.get('websockets').socketFor('ws://localhost:8080');
+    socket.send('{"type":"handshake","data":{"nickName":"DimiB","channelId":"room1","type":"msg","message":"Hello World"}}')
   },
 
   myMessageHandler: function(event) {
     console.log('Message: ' + event.data);
-    this.set('message', event.data);
+    var result = JSON.parse(event.data);
+    if(result.t == 'msg'){
+      this.messages.pushObject(atob(result.m));
+      this.set('messages', this.messages.slice(-30));
+      this.set('count', this.count + 1);
+    }
   },
 
   actions: {
     sendButtonPressed: function() {
-      var socket = this.get('websockets').socketFor('ws://localhost:9099');
-      socket.send('Hello Websocket World');
+      var socket = this.get('websockets').socketFor('ws://localhost:8080');
+      socket.send('{"type":"msg","data":"IOIOIOIOIOOOOOO"}');
     }
   }
 });

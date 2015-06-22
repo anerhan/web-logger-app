@@ -1,4 +1,11 @@
-Welcome Chat!<br><br>
+Welcome Chat!<br>{{appName}}<br>
 
-Received Message: {{message}}<br>
+
+Received Message: <h3>{{count}}</h3><br>
+
+
+{{#each message in messages}}
+  {{message}} <br/>
+{{/each}}
+
 <button id="sendButtonPressed" {{action "sendButtonPressed"}}>Press Me</button>
