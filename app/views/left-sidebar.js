@@ -1,7 +1,9 @@
+import Ember from 'ember';
+
 export default Ember.View.extend({
   tagName: 'li',
-  click: function(evt) {
-    $("#wrapper").toggleClass("toggled");
+  click: function() {
+    // $("#wrapper").toggleClass("toggled");
     return false;
   }
 });
