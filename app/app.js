@@ -16,11 +16,3 @@ App = Ember.Application.extend({
 loadInitializers(App, config.modulePrefix);
 
 export default App;
-
-
-
-// $("#menu-toggle").click(function(e) {
-//   e.preventDefault();
-//   $("#wrapper").toggleClass("toggled");
-// });
-

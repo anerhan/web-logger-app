@@ -1,6 +1,11 @@
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
    <div class="pull-left">
     <ul class="nav navbar-nav navbar-inline">
+      {{#view "left-sidebar"}}
+        <a href='#'>
+          <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+        </a>
+      {{/view}}
       <li>
         {{link-to 'Home' 'index'}}
       </li>

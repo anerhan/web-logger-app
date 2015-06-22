@@ -6,6 +6,13 @@ export default DS.Model.extend({
   email: DS.attr('string'),
   position: DS.attr('string'),
   createdAt: DS.attr('date'),
-  updatedAt: DS.attr('date')
+  updatedAt: DS.attr('date'),
+  meta: DS.attr('string'),
+  fullName: function(){
+        return this.get('firstName')+" "+this.get('lastName');
+    }.property('firstName', 'lastName'),
+  ability: function() {
+      return JSON.parse(this.get('meta')).ability.join(' | ');
+  }.property('meta')
 
 });
