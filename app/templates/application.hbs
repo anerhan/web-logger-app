@@ -1,6 +1,9 @@
-{{#top-navbar}} {{/top-navbar}}
-<div id='wrapper'>
-  {{#left-sidebar}} {{/left-sidebar}}
+{{ partial 'partials/top-navbar'}}
+
+<div id='wrapper' {{bind-attr class="isToggledLeftSidebar:toggled"}}>
+
+ {{ partial 'partials/left-sidebar'}}
+
   <div id="page-content-wrapper" style='border: 1px solid red;'>
     <div class="container-fluid">
       <div class="row">

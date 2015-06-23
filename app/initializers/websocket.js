@@ -7,6 +7,6 @@ export function initialize(/* container, application */) {
 export default {
   name: 'websockets',
   initialize: function(container, app) {
-        app.inject('controller', 'websockets', 'service:websockets');
+    app.inject('controller', 'websockets', 'service:websockets');
   }
 };

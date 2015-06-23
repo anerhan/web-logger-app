@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.View.extend({
-  tagName: 'li',
+  tagName: 'div',
   viewName: 'Im viviviviivii'
 
 

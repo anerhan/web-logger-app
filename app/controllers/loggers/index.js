@@ -1,5 +1,4 @@
 import Ember from 'ember';
-// import settings from '../../config/settings';
 
 export default Ember.ArrayController.extend({
   init: function() {
@@ -13,20 +12,19 @@ export default Ember.ArrayController.extend({
   },
   messages: Ember.A([]),
   count: 0,
-  // appName: settings.apiName,
-
-  myOpenHandler: function(event) {
+  myOpenHandler: function() {
     var socket = this.get('websockets').socketFor('ws://localhost:8080');
-    socket.send('{"type":"handshake","data":{"nickName":"DimiB","channelId":"room1","type":"msg","message":"Hello World"}}')
+    var msg = '{"type":"handshake","data":{"nickName":"DimiB","channelId":"room1","type":"msg","message":"Hello World"}}';
+    socket.send(msg);
   },
 
   myMessageHandler: function(event) {
     console.log('Message: ' + event.data);
     var result = JSON.parse(event.data);
-    if(result.t == 'msg'){
-      this.messages.pushObject(atob(result.m));
-      this.set('messages', this.messages.slice(-30));
+    if(result.t === 'msg'){
       this.set('count', this.count + 1);
+      this.messages.pushObject(this.count + ': ' + atob(result.m));
+      this.set('messages', this.messages.slice(-1000));
     }
   },
 

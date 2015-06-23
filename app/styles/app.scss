@@ -10,3 +10,14 @@ body {
   padding: 10px !important;
   top: 1px;
 }
+
+.logger-area{
+  background-color: black;
+  color: #fff;
+  font-size: 0.7em;
+  width: 1024px;
+  height: 650px;
+  resize: both;
+  overflow: auto;
+  border: 1px dotted black;
+}
