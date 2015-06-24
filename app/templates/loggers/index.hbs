@@ -1,9 +1,7 @@
-Strings count: {{count}}<br/>
+Strings count: {{count}}
 
 <div class='logger-area'>
-{{#each message in messages}}
-  {{message}} <br/>
-{{/each}}
+  {{#each log in logs}}
+    {{log}} <br/>
+  {{/each}}
 </div>
-
-<!-- <button id="sendButtonPressed" {{action "sendButtonPressed"}}>Press Me</button> -->

@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.ArrayController.extend({
+export default Ember.Controller.extend({
   init: function() {
     this._super();
     var socket = this.get('websockets').socketFor('ws://localhost:8080');
@@ -10,7 +10,7 @@ export default Ember.ArrayController.extend({
         console.log('closed');
     }, this);
   },
-  messages: Ember.A([]),
+  logs: Ember.A([]),
   count: 0,
   myOpenHandler: function() {
     var socket = this.get('websockets').socketFor('ws://localhost:8080');
@@ -23,8 +23,12 @@ export default Ember.ArrayController.extend({
     var result = JSON.parse(event.data);
     if(result.t === 'msg'){
       this.set('count', this.count + 1);
-      this.messages.pushObject(this.count + ': ' + atob(result.m));
-      this.set('messages', this.messages.slice(-1000));
+      this.logs.pushObject(this.count + ': ' + atob(result.m));
+      this.set('logs', this.logs.slice(-300));
+      // this.view.scrollTop();
+      // $('.logger-area').animate({ scrollTop: 20000 }, 5000);
+      // this.get('view').send('scrollTop');
+
     }
   },
 

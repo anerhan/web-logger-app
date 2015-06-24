@@ -8,6 +8,8 @@ export default DS.Model.extend({
   createdAt: DS.attr('date'),
   updatedAt: DS.attr('date'),
   meta: DS.attr('string'),
+  password: DS.attr('password'),
+  password: DS.attr('password_confirmation'),
   fullName: function(){
         return this.get('firstName')+" "+this.get('lastName');
     }.property('firstName', 'lastName'),
