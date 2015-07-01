@@ -11,7 +11,7 @@
   <tbody>
     {{#each user in model}}
       <tr>
-        <td>{{#link-to 'user' user}}{{user.email}}{{/link-to}}</td>
+        <td>{{#link-to 'users.edit' user}}{{user.email}}{{/link-to}}</td>
         <td>{{user.position}}</td>
         <td>{{user.fullName}}</td>
         <td>{{user.ability}}</td>

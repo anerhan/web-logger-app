@@ -22,3 +22,7 @@ body {
   border: 1px dotted black;
   padding-bottom: 30px;
 }
+
+[data-ember-action] {
+  cursor: pointer;
+}
