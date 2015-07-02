@@ -21,12 +21,12 @@ var Router = Ember.Router.extend({
 
 
 Router.map(function() {
-  this.route('users', { path: '/users' }, function() {
+  this.resource('users', { path: '/users' }, function() {
     this.route('edit', { path: '/:user_id/edit' });
-    this.route('new');
+    this.route('new', { path: '/new' });
   });
 
-  this.route('loggers', function() {
+  this.resource('loggers', function() {
     this.route('logger', { path: '/:logger_id' });
   });
 

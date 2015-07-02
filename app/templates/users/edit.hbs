@@ -1,24 +1,5 @@
   <form {{action 'save' on="submit"}}>
-    <div class="form-group row">
-      <label class="col-sm-2 control-label">First name:</label>
-      {{input class="col-sm-5" type="text" value=model.firstName disabled=entryNotAllowed size="35"}}
-    </div>
-    <div class="form-group row">
-      <label class="col-sm-2 control-label">Last name:</label>
-      {{input class="col-sm-5" type="text" value=model.lastName disabled=entryNotAllowed size="35"}}
-    </div>
-    <div class="form-group row">
-      <label class="col-sm-2 control-label">Email:</label>
-      {{input class="col-sm-5" type="text" value=model.email disabled=entryNotAllowed size="35"}}
-    </div>
-    <div class="form-group row">
-      <label class="col-sm-2 control-label">Password:</label>
-      {{input class="col-sm-5" type="text" value=model.password placeholder="Your Password"}}
-    </div>
-    <div class="form-group row">
-      <label class="col-sm-2 control-label">Password confirmation:</label>
-      {{input class="col-sm-5" type="text" value=model.password_confirmation placeholder="Confirm Password"}}
-    </div>
+    {{ partial 'users/_form'}}
     <div class="form-group col-sm-12 row">
       <hr/>
       <button type="submit" class="btn-s btn btn-primary">Submit</button>
